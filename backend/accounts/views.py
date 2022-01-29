@@ -55,4 +55,4 @@ class EmailVerify(GenericAPIView):
 		if not user.is_active:
 			user.is_active = True
 			user.save()
-		return Response('Account Verified', status=status.HTTP_200_OK)
+		return Response({'message' : 'Account Verified', 'token': token}, status=status.HTTP_200_OK)
