@@ -1,0 +1,16 @@
+*.log
+*.pot
+local_settings.py
+# Environments
+.virtualenv
+virtualenv/
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+# VS Code settings
+.vscode
+.idea
+
+.DS_Store
