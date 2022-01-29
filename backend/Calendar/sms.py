@@ -8,7 +8,8 @@ from .models import Contacts
 
 def contact_num(event):
     phone_list = []
-    for item in event.contacts:
+    print(event.contacts)
+    for item in event.contacts.iterator():
         contact = Contacts.objects.get(id=item)
         phone_list.append(contact.phoneno)
     return phone_list

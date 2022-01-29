@@ -42,7 +42,8 @@ def post_status(request):
     today = datetime.today()
     date_today = f"{today.year}-{today.month}-{today.day}"
     if serializer.is_valid():
-        for event in Events.objects.filter(date = date_today):
+        for event in Events.objects.filter(date = date_today).iterator():
+            print(event.contacts)
             num_list = contact_num(event)
             msg = event.message
             sms(num_list, msg) 
