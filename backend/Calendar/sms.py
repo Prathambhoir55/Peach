@@ -10,7 +10,7 @@ def contact_num(event):
     phone_list = []
     print(event.contacts)
     for item in event.contacts.iterator():
-        contact = Contacts.objects.get(id=item)
+        contact = Contacts.objects.get(id=item.id)
         phone_list.append(contact.phoneno)
     return phone_list
 

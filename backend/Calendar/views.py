@@ -47,3 +47,4 @@ def post_status(request):
             num_list = contact_num(event)
             msg = event.message
             sms(num_list, msg) 
+        return Response({'status':200, 'payload': serializer.data,'message': "Data entered"})
