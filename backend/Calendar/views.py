@@ -38,10 +38,10 @@ class EventsView(viewsets.ModelViewSet):
 @api_view(['POST'])
 def post_status(request):
     data = request.data
-    serialized = ButtonSerializer(data = data)
+    serializer = ButtonSerializer(data = data)
     today = datetime.today()
     date_today = f"{today.year}-{today.month}-{today.day}"
-    if serialized.data:
+    if serializer.is_valid():
         for event in Events.objects.filter(date = date_today):
             num_list = contact_num(event)
             msg = event.message
