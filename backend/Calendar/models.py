@@ -18,3 +18,6 @@ class Events(models.Model):
     contacts = models.ManyToManyField("Contacts", related_name="events")
     message = models.CharField(max_length=500)
 
+class Button(models.Model):
+
+    status = models.BooleanField(default=False)

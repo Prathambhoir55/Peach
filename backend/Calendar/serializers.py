@@ -9,10 +9,16 @@ class ContactsSerializer(serializers.ModelSerializer):
         fields = '__all__'
         
 
-
 class EventsSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.email')
 
     class Meta:
         model = Events
+        fields = '__all__'
+
+
+class ButtonSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Button
         fields = '__all__'

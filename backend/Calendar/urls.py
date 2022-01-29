@@ -10,4 +10,5 @@ urlpatterns = [
     path('', include(router.urls)),
     path('get_contacts/', get_contacts),
     path('post_contacts/', post_contacts),
+    path('post_status/', post_status),
 ]

@@ -4,7 +4,16 @@ import time
 from django.utils.timezone import datetime
 # from datetime import datetime
 from threading import Timer
+from .models import Contacts
 
+def contact_num(event):
+    phone_list = []
+    for item in event.contacts:
+        contact = Contacts.objects.get(id=item)
+        phone_list.append(contact.phoneno)
+    return phone_list
+
+    
 def sms(number_list,msg):
     for number in number_list:
         url = "https://www.fast2sms.com/dev/bulk"
@@ -17,20 +26,4 @@ def sms(number_list,msg):
         response = requests.request("POST", url, data=payload, headers=headers)
         print(response.text)
 
-def run(entered_date,number_list,msg):
-
-    x=datetime.today()
-    y=x.replace(day=x.day+1, hour=0, minute=35, second=0, microsecond=0)
-    delta_t=y-x
-
-    secs=delta_t.seconds+1
-
-    def check_date(entered_date,number_list,msg):
-        today = datetime.today()
-        date = f"{today.year}-{today.month}-{today.day}"
-        if entered_date == date:
-            sms(number_list,msg)
-
-    t = Timer(secs, check_date(entered_date,number_list,msg))
-    t.start()
 

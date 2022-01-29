@@ -28,24 +28,21 @@ class EventsView(viewsets.ModelViewSet):
     serializer_class = EventsSerializer
     
     def get_queryset(self): 
-        queryset = User.objects.filter(owner = self.request.user) 
+        queryset = Events.objects.filter(owner = self.request.user) 
         return queryset
          
     def perform_create(self,serializer):
         serializer.save(owner = self.request.user)
-        phone_list = []
-        for item in self.request.data['contacts']:
-            contact = Contacts.objects.get(id=item)
-            phone_list.append(contact.phoneno)
-        run(self.request.data['date'],phone_list,self.request.data['message'])
-
-    
         
-    # def perform_create(self,serializer):
-    #     serializer.save()
-    #     phone_list = []
-    #     for item in serializer.data['contacts']:
-    #         contact = Contacts.objects.get(id=item)
-    #         phone_list.append(contact.phoneno)
-    #     check_date(serializer.data['date'],phone_list,serializer.data['message'])
         
+@api_view(['POST'])
+def post_status(request):
+    data = request.data
+    serialized = ButtonSerializer(data = data)
+    today = datetime.today()
+    date_today = f"{today.year}-{today.month}-{today.day}"
+    if serialized.data:
+        for event in Events.objects.filter(date = date_today):
+            num_list = contact_num(event)
+            msg = event.message
+            sms(num_list, msg) 
