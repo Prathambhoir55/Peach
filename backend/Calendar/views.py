@@ -4,6 +4,8 @@ from rest_framework.response import Response
 from .models import *
 from .serializers import *
 from rest_framework import viewsets
+from .sms import * 
+
 
 @api_view(['POST'])
 def post_contacts(request):
@@ -20,6 +22,25 @@ def get_contacts(request):
     serialized = ContactsSerializer(contacts_objs, many=True)
     return Response({'status':200, 'payload': serialized.data, 'message': "Contact information has been displayed"})
 
+
 class EventsView(viewsets.ModelViewSet):
-	queryset = Events.objects.all()
-	serializer_class = EventsSerializer
+    queryset = Events.objects.all() 
+    serializer_class = EventsSerializer
+    
+    def perform_create(self,serializer):
+        serializer.save()
+        phone_list = []
+        for item in self.request.data['contacts']:
+            contact = Contacts.objects.get(id=item)
+            phone_list.append(contact.phoneno)
+        run(self.request.data['date'],phone_list,self.request.data['message'])
+        
+    # def perform_create(self,serializer):
+    #     serializer.save()
+    #     phone_list = []
+    #     for item in serializer.data['contacts']:
+    #         contact = Contacts.objects.get(id=item)
+    #         phone_list.append(contact.phoneno)
+    #     check_date(serializer.data['date'],phone_list,serializer.data['message'])
+        
+        
