@@ -5,8 +5,8 @@ from accounts.models import User
 # Register your models here.
 class UserAdmin(BaseUserAdmin):
     model = User
-    list_display = ['email', 'name','is_staff','is_active','is_superuser']
-    list_filter = ['email','name','is_staff','is_active','is_superuser']
+    list_display = ['email', 'name','is_staff','is_active','is_superuser', 'phone_no']
+    list_filter = ['email','name','is_staff','is_active','is_superuser', 'phone_no']
 
     fieldsets = (
         (None, {'fields': ('email', 'password')}),
@@ -17,7 +17,7 @@ class UserAdmin(BaseUserAdmin):
     add_fieldsets = (
         (None, {
             'classes': ('wide,'),
-            'fields': ('email', 'password1', 'password2', 'name','is_staff','is_active'),
+            'fields': ('email', 'password1', 'password2', 'name','is_staff','is_active', 'phone_no'),
         }),
     )
     search_fields = ('email',)

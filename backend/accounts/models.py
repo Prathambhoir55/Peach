@@ -2,6 +2,7 @@ from django.contrib.auth.models import AbstractUser
 from django.contrib.auth.base_user import BaseUserManager
 from django.db import models
 from rest_framework.authtoken.models import Token
+from phonenumber_field.modelfields import PhoneNumberField
 
 # Create your models here.
 class UserManager(BaseUserManager):
@@ -40,6 +41,7 @@ class User(AbstractUser):
     # extra fields
     email = models.EmailField(("Email Address"),primary_key=True)
     name = models.CharField(max_length = 30)
+    phone_no = PhoneNumberField() 
 
 
     USERNAME_FIELD = 'email'
