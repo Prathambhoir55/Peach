@@ -4,6 +4,7 @@ from accounts.models import User
 
 class Contacts(models.Model):
 
+    owner = models.ForeignKey(User,on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     birthdate = models.DateField()
     phoneno = PhoneNumberField()
@@ -11,6 +12,7 @@ class Contacts(models.Model):
 
 class Events(models.Model):
 
+    owner = models.ForeignKey(User,on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     date = models.DateField()
     contacts = models.ManyToManyField("Contacts", related_name="events")

@@ -2,6 +2,7 @@ from rest_framework import serializers
 from .models import *
 
 class ContactsSerializer(serializers.ModelSerializer):
+    owner = serializers.ReadOnlyField(source='owner.email')
 
     class Meta:
         model = Contacts
@@ -10,6 +11,7 @@ class ContactsSerializer(serializers.ModelSerializer):
 
 
 class EventsSerializer(serializers.ModelSerializer):
+    owner = serializers.ReadOnlyField(source='owner.email')
 
     class Meta:
         model = Events
