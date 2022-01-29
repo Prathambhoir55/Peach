@@ -3,6 +3,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .models import *
 from .serializers import *
+from rest_framework import viewsets
 
 @api_view(['POST'])
 def post_contacts(request):
@@ -19,3 +20,6 @@ def get_contacts(request):
     serialized = ContactsSerializer(contacts_objs, many=True)
     return Response({'status':200, 'payload': serialized.data, 'message': "Contact information has been displayed"})
 
+class EventsView(viewsets.ModelViewSet):
+	queryset = Events.objects.all()
+	serializer_class = EventsSerializer
