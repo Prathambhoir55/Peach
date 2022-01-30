@@ -24,6 +24,7 @@
 
 
 If we want to get the latest tech news, we can do something as follows:
+
 ![AI-assistant3](https://user-images.githubusercontent.com/80087152/151686285-9bc57d19-27d2-48e9-93cb-8f3b6cf0cdc9.png)
 ![AI-assistant1](https://user-images.githubusercontent.com/80087152/151686283-d8fce2f7-9934-4752-aad5-2db7b35a8d08.png)
 
