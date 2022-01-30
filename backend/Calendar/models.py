@@ -7,7 +7,7 @@ class Contacts(models.Model):
     owner = models.ForeignKey(User,on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     birthdate = models.DateField()
-    phoneno = PhoneNumberField()
+    phoneno = models.CharField(max_length=10)
 
 
 class Events(models.Model):

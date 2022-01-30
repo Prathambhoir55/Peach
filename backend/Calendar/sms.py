@@ -18,7 +18,7 @@ def contact_num(event):
         phone_list.append(contact.phoneno)
     return phone_list
 
-    
+
 def sms(number_list,msg):
     for number in number_list:
         url = "https://www.fast2sms.com/dev/bulk"
