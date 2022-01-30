@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Typography } from '@material-ui/core';
 import wordsToNumbers from 'words-to-numbers';
 import alanBtn from '@alan-ai/alan-sdk-web';
-
-import logo from './images/logo.png';
+import SignIn from './Pages/SignIn'
+// import logo from './images/logo.png';
 import { NewsCards, Modal } from './components';
 import useStyles from './styles';
-
+import AppBar from './components/AppBar'
 const App = () => {
   const [activeArticle, setActiveArticle] = useState(0);
   const [newsArticles, setNewsArticles] = useState([]);
@@ -43,21 +43,16 @@ const App = () => {
   }, []);
 
   return (
-    <div>
-      <div className={classes.logoContainer}>
-        {newsArticles.length ? (
-          <div className={classes.infoContainer}>
-            <div className={classes.card}><Typography variant="h5" component="h2">Try saying: <br /><br />Open article number [4]</Typography></div>
-            <div className={classes.card}><Typography variant="h5" component="h2">Try saying: <br /><br />Go back</Typography></div>
-          </div>
-        ) : null}
-        <img src="https://alan.app/voice/images/previews/preview.jpg" className={classes.alanLogo} alt="logo" />
+    <>
+      <AppBar></AppBar>
+      <div className={classes.App}>
+        <NewsCards articles={newsArticles} activeArticle={activeArticle} />
+        <Modal isOpen={isOpen} setIsOpen={setIsOpen} />
       </div>
-      <NewsCards articles={newsArticles} activeArticle={activeArticle} />
-      <Modal isOpen={isOpen} setIsOpen={setIsOpen} />
-      
-    </div>
+    </>
   );
 };
 
 export default App;
+//b5e48c 90be6d 007f5f
+//e76f51 f4a261

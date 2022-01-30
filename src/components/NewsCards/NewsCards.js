@@ -5,10 +5,12 @@ import NewsCard from './NewsCard/NewsCard';
 import useStyles from './styles.js';
 
 const infoCards = [
-  { color: '#00838f', title: 'Latest News', text: 'Give me the latest news' },
-  { color: '#1565c0', title: 'News by Categories', info: 'Business, Entertainment, General, Health, Science, Sports, Technology', text: 'Give me the latest Technology news' },
-  { color: '#4527a0', title: 'News by Terms', info: 'Bitcoin, PlayStation 5, Smartphones, Donald Trump...', text: 'What\'s up with PlayStation 5' },
-  { color: '#283593', title: 'News by Sources', info: 'CNN, Wired, BBC News, Time, IGN, Buzzfeed, ABC News...', text: 'Give me the news from CNN' },
+  { color: '#007f5f', title: 'Top SoundTracks', text: 'What are the top 5 songs' },
+  { color: '#189664', title: 'News by Categories', info: 'Business, Entertainment, General, Health, Science, Sports, Technology', text: 'Give me the latest Technology news' },
+  { color: '#90be6d', title: 'News by Terms', info: 'Bitcoin, PlayStation 5, Smartphones, Donald Trump...', text: 'What\'s up with PlayStation 5' },
+  { color: '#e76f51', title: 'News by Sources', info: 'CNN, Wired, BBC News, Time, IGN, Buzzfeed, ABC News...', text: 'Give me the news from CNN' },
+  { color: '#e88348', title: 'Home Page',  text: 'Go Back '},
+  { color: '#f4a261', title: 'Go to Article Webpage',  text: 'Read Article Number [3]' },
 ];
 
 const NewsCards = ({ articles, activeArticle }) => {
@@ -19,7 +21,7 @@ const NewsCards = ({ articles, activeArticle }) => {
       <Grow in>
         <Grid className={classes.container} container alignItems="stretch" spacing={3}>
           {infoCards.map((infoCard) => (
-            <Grid item xs={12} sm={6} md={4} lg={3} className={classes.infoCard}>
+            <Grid item xs={4}  className={classes.infoCard}>
               <div className={classes.card} style={{ backgroundColor: infoCard.color }}>
                 <Typography variant="h5" component="h5">{infoCard.title}</Typography>
                 {infoCard.info ? <Typography variant="h6" component="h6"><strong>{infoCard.title.split(' ')[2]}</strong>: <br />{infoCard.info}</Typography> : null}
@@ -27,6 +29,7 @@ const NewsCards = ({ articles, activeArticle }) => {
               </div>
             </Grid>
           ))}
+          {/* <Grid item xs={4}  className={classes.card}>123iuh</Grid> */}
         </Grid>
       </Grow>
     );

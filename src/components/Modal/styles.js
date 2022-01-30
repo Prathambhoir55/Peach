@@ -14,6 +14,7 @@ export default makeStyles((theme) => ({
     height: '60%',
   },
   infoContainer: {
+
     display: 'flex',
     alignItems: 'center',
     // justifyContent: 'center',
@@ -35,4 +36,5 @@ export default makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
   },
+  
 }));

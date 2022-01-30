@@ -15,6 +15,8 @@ export default makeStyles({
     flexDirection: 'column',
     justifyContent: 'space-between',
     borderBottom: '10px solid white',
+    margin : '0.em',
+    background: '#FFFCF2',
   },
   activeCard: {
     borderBottom: '10px solid #22289a',

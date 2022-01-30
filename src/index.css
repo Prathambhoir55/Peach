@@ -14,3 +14,13 @@ body {
 html {
     scroll-behavior: smooth;
 }
+.App{
+    background-color: '#faedcd'
+}
+
+/* @font-face {
+    font-family: "CormorantGaramond-Medium";
+    src: local("CormorantGaramond-Medium"),
+     url("./fonts/CormorantGaramond-Medium.ttf") format("truetype");
+    font-weight: bold;
+    } */

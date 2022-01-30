@@ -5,6 +5,7 @@ export default makeStyles((theme) => ({
     textAlign: 'center',
     position: 'fixed',
     left: 0,
+    background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
     bottom: 0,
     color: 'black',
     width: '100%',
@@ -15,6 +16,18 @@ export default makeStyles((theme) => ({
     [theme.breakpoints.down('sm')]: {
       display: 'none',
     },
+  },
+
+  home :{
+    width: '100%',
+    height: '100vh',
+    background  : 'darkgray'
+  },
+
+  App:{
+    width: '100%',
+    height: 'auto',
+    background : '#403D39'
   },
   link: {
     textDecoration: 'none',
@@ -27,12 +40,12 @@ export default makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    width: '50%',
+    width: '20em',
     padding: '3%',
     borderRadius: 10,
     color: 'white',
-    backgroundColor: 'rgba(21, 101, 192)',
-    margin: '0 12px',
+    backgroundColor: 'rgba(100, 101, 192)',
+    margin: '12px 12px',
     textAlign: 'center',
     height: '25vmin',
     [theme.breakpoints.down('sm')]: {
@@ -65,7 +78,7 @@ export default makeStyles((theme) => ({
     },
   },
   alanLogo: {
-    height: '27vmin',
+    height: '20vmin',
     borderRadius: '15%',
     padding: '0 5%',
     margin: '3% 0',
@@ -74,3 +87,5 @@ export default makeStyles((theme) => ({
     },
   },
 }));
+
+
